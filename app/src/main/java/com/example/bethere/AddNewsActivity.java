@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 
 public class AddNewsActivity extends ActionBarActivity {
-
+// Test Daniel Repovs
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
