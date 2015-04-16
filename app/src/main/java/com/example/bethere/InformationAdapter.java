@@ -28,7 +28,7 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.custom_row, parent, false);
         ViewHolder holder = new ViewHolder(view);
-        return null;
+        return holder;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
