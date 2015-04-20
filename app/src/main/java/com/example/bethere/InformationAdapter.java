@@ -1,12 +1,14 @@
 package com.example.bethere;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,10 +20,17 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
 
     private LayoutInflater inflater;
     List<Information> data = Collections.emptyList();
+    private Context context;
 
     public InformationAdapter(Context context, List<Information> data) {
+        this.context = context;
         inflater = LayoutInflater.from(context);
-        this.data=data;
+        this.data = data;
+    }
+
+    public void delete(int position) {
+        data.remove(position);
+        notifyItemRemoved(position);
     }
 
     @Override
@@ -33,10 +42,11 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Information current=data.get(position);
+        Information current = data.get(position);
         holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
     }
+
 
     @Override
     public int getItemCount() {
@@ -52,6 +62,11 @@ public class InformationAdapter extends RecyclerView.Adapter<InformationAdapter.
             title = (TextView) itemView.findViewById(R.id.listText);
             icon = (ImageView) itemView.findViewById(R.id.listIcon);
 
+
         }
+
+
     }
+
+
 }
