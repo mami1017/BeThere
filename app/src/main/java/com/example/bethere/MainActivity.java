@@ -3,7 +3,6 @@ package com.example.bethere;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,18 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.bethere.Tab.SlidingTabLayout;
+import com.example.bethere.tabs.SlidingTabLayout;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -83,32 +77,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class MyFragment extends Fragment {
-
-        private TextView textView;
-
-        public static MyFragment getInstance(int position) {
-            MyFragment myFragment = new MyFragment();
-            Bundle args = new Bundle();
-            args.putInt("position", position);
-            myFragment.setArguments(args);
-            return myFragment;
-        }
-
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            View layout = inflater.inflate(R.layout.fragment_news, container, false);
-            textView = (TextView) layout.findViewById(R.id.news);
-            Bundle bundle = getArguments();
-            if (bundle != null) {
-                textView.setText("The selected page is " + bundle.getInt("position"));
-            }
-
-            return layout;
-        }
-
-    }
 
     class PagerAdapter extends FragmentPagerAdapter {
 
@@ -128,11 +96,11 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            Drawable drawable=getResources().getDrawable(icons[position]);
-            drawable.setBounds(0,0,36,36);
-            ImageSpan imageSpan=new ImageSpan(drawable);
-            SpannableString spannableString=new SpannableString(" ");
-            spannableString.setSpan(imageSpan,0,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            Drawable drawable = getResources().getDrawable(icons[position]);
+            drawable.setBounds(0, 0, 36, 36);
+            ImageSpan imageSpan = new ImageSpan(drawable);
+            SpannableString spannableString = new SpannableString(" ");
+            spannableString.setSpan(imageSpan, 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             return spannableString;
         }
 

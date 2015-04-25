@@ -1,4 +1,4 @@
-package com.example.bethere.Tab;
+package com.example.bethere.tabs;
 
 /**
  * Created by Windows on 16-01-2015.

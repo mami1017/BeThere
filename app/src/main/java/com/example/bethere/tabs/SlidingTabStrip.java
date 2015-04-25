@@ -1,4 +1,4 @@
-package com.example.bethere.Tab;
+package com.example.bethere.tabs;
 
 /*
  *Copyright 2014 Google Inc. All rights reserved.
